@@ -50,7 +50,7 @@ const Page = ({params}) => {
                 <div className="mt-4"><Image src={work.backgroundImage} height={300} width={300} className="w-full"/></div>
             <div className="mt-5 text-slate-800 ">{work.description}</div>
              </div>
-             <div className=" w-full md:w-4/12  md:space-y-8  ">
+             <div className=" w-full md:w-4/12 space-y-4 md:space-y-8  ">
                 <div className="w-full bg-white px-3 md:px-12 py-8">
                     <div className="flex items-center space-x-3">
                         <input type="radio" checked className=" checked:bg-slate-800 "/>
