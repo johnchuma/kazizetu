@@ -8,7 +8,7 @@ const Page = ({children}) => {
    const pathname  =  usePathname()
    const {userDetails} = useContext(UserContext)
  
-    return (  <div className="bg-slate-100   min-h-screen px-12 py-8 flex space-x-12">
+    return ( userDetails&& <div className="bg-slate-100   min-h-screen px-12 py-8 flex space-x-12">
           <div className="w-3/12 flex flex-col fixed ">
             {[
                 {title:"My works",show:true, link:"/myWorks",icon:<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
