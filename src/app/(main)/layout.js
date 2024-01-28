@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import { getMyInfo } from "../controllers/user_controller";
 import Loader from "../components/loader";
+import Footer from "../components/footer"
 export const UserContext = createContext()
 const Page = ({children}) => {
     const [userDetails, setUserDetails] = useState(null);
@@ -21,6 +22,7 @@ const Page = ({children}) => {
         {children}
 
         </div>
+        <Footer/>
         </UserContext.Provider>
         
 
