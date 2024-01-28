@@ -31,7 +31,7 @@ const Page = () =>{
 
                 {categories.length<1?<div></div>:<div className="grid grid-cols-6 gap-y-6">
                     {categories.map((item,key)=>{
-                        return <div key={key} className="flex flex-col items-center">
+                        return <div key={key} className="flex flex-col items-center text-center">
                             <div dangerouslySetInnerHTML={{ __html:item.icon }}></div>
                             <div className="text-sm font-medium">{item.name}</div>
                         </div>

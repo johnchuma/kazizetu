@@ -39,7 +39,7 @@ const Navbar = () => {
       </div>
       <div onClick={()=>{
           setshowMenu(!showMenu)
-        }} className="flex relative items-center space-x-3 border cursor-pointer  px-1 border-slate-400 rounded-full">
+        }} className="flex relative items-center space-x-3 border cursor-pointer  px-1 border-slate-400 py-1 md:py-0 rounded-full">
           <div className="aspect-squire bg-slate-950 rounded-full">
             {userDetails != null ?<Image src={userDetails.image} height={30} width={30} className="rounded-full aspect-square object-cover"/>:
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-3 h-3 text-white m-2 ">
