@@ -1,18 +1,24 @@
 "use client"
-import { useEffect, useState } from "react";
-import {getWorkDetails} from "../../../controllers/work_controller"
+import { useContext, useEffect, useState } from "react";
+import {deleteUserWorks, getWorkDetails} from "../../../controllers/work_controller"
 import Loader from "../../../components/loader"
 import Image from "next/image"
+import Spinner from "../../../components/spinner";
+import { useRouter } from "next/navigation";
+import Link from "next/link"
+import { UserContext } from "../../layout";
 const Page = ({params}) => {
     const uuid = params.uuid;
-    const [work, setwork] = useState(null);
     const [loading, setloading] = useState(true);
+    const [deleting, setdeleting] = useState(false);
+    const router  = useRouter();
+    const {userDetails} = useContext(UserContext)
+    const [work, setwork] = useState(null);
     useEffect(() => {
      getWorkDetails(uuid).then((data)=>{
         setwork(data)
         setloading(false)
-     })
-        
+     }) 
     }, []);
     return ( loading?<Loader/>:<div className=" bg-slate-100 min-h-screen px-3 md:px-12 py-6 md:py-12">
         <div className="flex flex-col md:flex-row md:space-x-8">
@@ -53,6 +59,21 @@ const Page = ({params}) => {
 
                   
                 </div>
+                {
+                    userDetails.uuid == work.User.uuid && <div className="flex">
+                    <Link href={`/editWork/${work.uuid}`} className="w-4/12 flex justify-center bg-green-600 bg-opacity-80 text-white py-3 px-2">Edit</Link>
+                    <div onClick={()=>{
+                        setdeleting(true)
+                        deleteUserWorks(work.uuid).then((data)=>{
+                        setdeleting(false)
+                            router.back()
+                        })
+                    }} className="w-8/12 flex cursor-pointer justify-center bg-red-600 bg-opacity-80 text-white py-3 px-2">
+                        {deleting?<Spinner/>:"Delete"}</div>
+
+                </div>
+                }
+                
              </div>
 
         </div>

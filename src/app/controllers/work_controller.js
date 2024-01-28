@@ -53,6 +53,30 @@ import { server_url } from "../utils/endpoint";
     }
   };
   
+  export const updateUserWork = async (uuid,data) => {
+    try {
+      const formData = new FormData();
+      console.log(data.file)
+      formData.append('file', data.file); 
+      delete data.file;
+      Object.keys(data).forEach((key) => {
+        formData.append(key, data[key]);
+      });
+      const user = getUser()
+      const response = await axios.patch(`${server_url}/user_profession/${uuid}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', 
+          'Authorization': `Bearer ${user && user.ACCESS_TOKEN}`
+        },
+      });
+     
+     return response.data
+    } catch (error) { 
+      console.log(error.response)
+      throw error
+    }
+  };
+
 
   export const getUserWorks = async (page,limit) => {
     try {
@@ -64,6 +88,22 @@ import { server_url } from "../utils/endpoint";
           },
       });
       console.log(response.data.body)
+     return response.data.body
+    } catch (error) {
+      console.log(error);
+      throw error
+    }
+  };
+
+  export const deleteUserWorks = async (uuid) => {
+    try {
+      const user = getUser()
+      const response = await axios.delete(`${server_url}/user_profession/${uuid}`,{
+        headers: {
+            'Content-Type': 'multipart/form-data', 
+            'Authorization': `Bearer ${user && user.ACCESS_TOKEN}`
+          },
+      });
      return response.data.body
     } catch (error) {
       console.log(error);
