@@ -19,7 +19,7 @@ export default function Home() {
   }, []);
   return (
     <main className="bg-white min-h-screen  ">
-      <div className="fixed pt-0 md:pt-2 w-screen ">
+      <div className="fixed pt-2 md:pt-2 w-screen ">
       <div className="flex mx-3 md:px-12 overflow-x-scroll no-scrollbar space-x-10 bg-white">
         {categories.map((item,key)=><div key={key} onClick={()=>{
             setselectedCategory(key)
