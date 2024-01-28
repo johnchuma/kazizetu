@@ -6,20 +6,30 @@ import { getCategories } from "../controllers/category_controller";
 import { getAllWorks } from "../controllers/work_controller";
 import NoData from "../components/noData";
 import WorkItem from "../components/workItem";
+import Loader from "../components/loader";
 
 export default function Home() {
   const [selectedCategory, setselectedCategory] = useState(0);
   const [categories, setcategories] = useState([]);
   const [works, setworks] = useState([]);
+  const [loading, setloading] = useState(false);
+  const [loading2, setloading2] = useState(false);
+
   useEffect(() => {
+    setloading(true)
+    setloading2(true)
     getAllWorks(1,10).then((response)=>{
       setworks(response.data)
+      setloading(false)
     })
-      getCategories().then((data)=>setcategories(data))
+    getCategories().then((data)=>{
+      setcategories(data)
+      setloading2(false)
+    })
   }, []);
-  return (
+  return loading2 & loading?<Loader/>:(
     <main className="bg-white min-h-screen  ">
-      <div className="fixed pt-2 md:pt-2 w-screen ">
+      <div className="fixed pt-[6px] md:pt-2 w-screen ">
       <div className="flex mx-3 md:px-12 overflow-x-scroll no-scrollbar space-x-10 bg-white">
         {categories.map((item,key)=><div key={key} onClick={()=>{
             setselectedCategory(key)

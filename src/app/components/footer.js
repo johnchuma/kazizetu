@@ -8,8 +8,8 @@ const Footer = () => {
         getCategories().then((data)=>setcategories(data))
     }, []);
     return (categories&&
-    <div className="w-screen overflow-x-hidden">
-<div className="grid grid-cols-3 px-12 pt-12 bg-white overflow-x-hidden ">
+    <div className=" overflow-hidden">
+<div className="grid px-3 gap-y-5 md:px-12  grid-cols-1 md:grid-cols-3 w-full  pt-12 bg-white overflow-x-hidden ">
         <div>
             <div className="text-sm font-bold mb-4" >Categories</div>
             <div className="space-y-3">
@@ -57,17 +57,17 @@ const Footer = () => {
         </div>
       
     </div>
-    <div className="h-[1px] w-screen overflow-x-hidden  mx-12 bg-slate-300 my-4"></div> 
+    <div className="h-[1px] px-3 md:px-12  overflow-x-hidden   bg-slate-300 my-4"></div> 
 
-    <div className="flex px-12 w-screen overflow-x-hidden justify-between mb-5">
+    <div className="flex  px-3 md:px-12 overflow-x-hidden justify-between mb-5">
 
         <div className="flex text-sm space-x-2">
-        <Link href="/">
+        <Link className="" href="/">
           <div className="font-bold text-sm text-slate-950">KaziZetu</div>
           <div className="w-full h-1 bg-slate-950"></div>
 
           </Link>
-          <div>
+          <div className="hidden md:block">
           ©️ 2024. All rights reserved
           </div>
         </div>
