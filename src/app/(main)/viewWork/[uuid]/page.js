@@ -47,7 +47,7 @@ const Page = ({params}) => {
                 <div className=" font-medium text-sm opacity-70">{work.address}</div>
             </div>
        
-                <div className="mt-4"><Image src={work.backgroundImage} height={300} width={300} className="w-full"/></div>
+                <div className="mt-4"><Image className="w-full rounded-md " src={work.backgroundImage} height={300} width={300}/></div>
             <div className="mt-5 text-slate-800 ">{work.description}</div>
              </div>
              <div className=" w-full md:w-4/12 space-y-4 md:space-y-8  ">
