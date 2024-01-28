@@ -13,7 +13,7 @@ const Navbar = () => {
  const router = useRouter()
 
     return ( <div className="fixed w-screen z-30 ">
-         <div className=" bg-white  flex justify-between px-3 md:px-12 py-8 items-center">
+         <div className=" bg-white  flex justify-between px-3 md:px-12 py-4 md:py-8 items-center">
           
         <div className="flex space-x-5 items-center">
           <Link href="/">
