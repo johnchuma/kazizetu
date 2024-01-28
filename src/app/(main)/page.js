@@ -28,7 +28,7 @@ export default function Home() {
     })
   }, []);
   return loading2 & loading?<Loader/>:(
-    <main className="bg-white min-h-screen  ">
+    <main className="bg-white   ">
       <div className="fixed pt-[6px] md:pt-2 w-screen ">
       <div className="flex mx-3 md:px-12 overflow-x-scroll no-scrollbar space-x-10 bg-white">
         {categories.map((item,key)=><div key={key} onClick={()=>{
