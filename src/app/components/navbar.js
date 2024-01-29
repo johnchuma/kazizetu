@@ -12,8 +12,8 @@ const Navbar = () => {
   const {userDetails,setUserDetails}  = useContext(UserContext);
  const router = useRouter()
 
-    return ( <div className="fixed w-screen z-30 ">
-         <div className=" bg-white  flex justify-between px-3 md:px-12 py-4 md:py-8 items-center">
+    return ( <div className="fixed w-screen z-30  ">
+         <div className=" bg-white border-0  flex justify-between px-3 md:px-12 py-4 md:py-8 items-center">
           
         <div className="flex space-x-5 items-center">
           <Link href="/">
@@ -22,7 +22,20 @@ const Navbar = () => {
 
           </Link>
 
-        <div><input placeholder="Search here..." className=" hidden md:block focus:ring-0 placeholder:text-sm border-0 bg-slate-100 rounded-full " type="text"/></div>
+        <div>
+          <form  onSubmit={(e)=>{
+            e.preventDefault()
+            if(e.target.keyword.value == ""){
+              router.push("/")
+            }
+            else{
+              router.push(`/keyword/${e.target.keyword.value}`)
+
+            }
+          }}>
+          <input placeholder="Search here..." name="keyword" className=" hidden md:block focus:ring-0 placeholder:text-sm border-0 bg-slate-100 rounded-full " type="text"/>
+          </form>
+          </div>
         </div>
      <div className="flex space-x-4">
 

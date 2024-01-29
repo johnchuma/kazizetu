@@ -23,7 +23,7 @@ const WorkItem = ({item}) => {
         
 
          <div className=" mt-2 text-base font-medium ">{item.title}</div>
-         <div className="font-semibold pt-2 text-base">Kuanzia: {item.startingPrice} TSH</div>
+         <div className="font-semibold pt-2 text-base">From: {item.startingPrice} TSH</div>
      
         </div> );
 }

@@ -111,10 +111,10 @@ import { server_url } from "../utils/endpoint";
     }
   };
 
-  export const getAllWorks = async (page,limit) => {
+  export const getAllWorks = async (page,limit,category_uuid,keyword) => {
     try {
         const user = getUser()
-      const response = await axios.get(`${server_url}/user_profession/?page=${page}&limit=${limit}`,{
+      const response = await axios.get(`${server_url}/user_profession/?page=${page}&limit=${limit}&category_uuid=${category_uuid}&keyword=${keyword}`,{
         headers: {
             'Content-Type': 'multipart/form-data', 
             'Authorization': `Bearer ${user && user.ACCESS_TOKEN}`
