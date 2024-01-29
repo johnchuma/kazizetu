@@ -19,7 +19,7 @@ const Layout = ({children}) => {
 
     return ( loading?<Loader/>: <div>
        
-            <div className="fixed pt-[5px] md:pt-2 w-screen ">
+            <div className="fixed pt-[4px] md:pt-2 w-screen whitespace-nowrap ">
       <div className="flex mx-3 md:px-12 overflow-x-scroll no-scrollbar space-x-10 bg-white">
         <Link href="/">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -32,7 +32,7 @@ const Layout = ({children}) => {
         {categories.map((item,key)=><Link href={`/category/${item.uuid}`}  key={key} className="flex flex-col items-center cursor-pointer text-center">
             <div className="text-slate-900  "  dangerouslySetInnerHTML={{ __html:item.icon }}>
               </div>
-            <div className=" text-sm   mt-1 font-semibold line-clamp-1 text-slate-800">{item.name}</div>
+            <div className=" text-sm   mt-1 font-semibold  text-slate-800">{item.name}</div>
             {category_uuid == item.uuid && <div  className="h-[2px] mt-2 w-full bg-slate-950 "></div>}
           </Link>)}
        </div>

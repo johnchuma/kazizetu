@@ -18,7 +18,7 @@ const Page = ({children}) => {
     return ( loader?<Loader/>: <div>
         <UserContext.Provider value={{ userDetails,setUserDetails }}>
         <Navbar/>
-        <div className=" pt-14 md:pt-24">
+        <div className=" pt-16 md:pt-24">
         {children}
 
         </div>
