@@ -74,7 +74,7 @@ const Page = ({params}) => {
 
                   
                 </div>
-                {
+                {  userDetails&&
                     userDetails.uuid == work.User.uuid && <div className="flex">
                     <Link href={`/editWork/${work.uuid}`} className="w-4/12 flex justify-center bg-green-600 bg-opacity-80 text-white py-3 px-2">Edit</Link>
                     <div onClick={()=>{
